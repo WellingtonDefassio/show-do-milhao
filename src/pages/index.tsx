@@ -3,6 +3,7 @@ import QuestaoModel from "@/model/questaoModel";
 import RespostaModel from "@/model/respostaModel";
 import {useEffect, useRef, useState} from "react";
 import Botao from "@/components/Botao";
+import Questionario from "@/components/Questionario";
 
 const questaoMock = new QuestaoModel(1, "Melhor cor?", [
     RespostaModel.errada("Azul"),
@@ -14,18 +15,14 @@ const questaoMock = new QuestaoModel(1, "Melhor cor?", [
 export default function Home() {
     const [questao, setQuestao] = useState(questaoMock)
 
+    function questaoRespondida(questao: QuestaoModel) {
+
+    }
+    function irParaProximoPasso() {
+
+    }
 
 
-    function respostaFornecida(indice: number) {
-        const responderCom = questao.responderCom(indice);
-        setQuestao(responderCom)
-    }
-    function tempoEsgotado() {
-        if(questao.naoRespondida) {
-            const responderCom = questao.responderCom(-1);
-            setQuestao(responderCom)
-        }
-    }
 
     return (
         <div style={{
@@ -35,12 +32,18 @@ export default function Home() {
             alignItems: 'center',
             height: '100vh'
         }}>
-            <Questao tempoPraResposta={5}
-                     valor={questao}
-                     respostaFornecida={respostaFornecida}
-                     tempoEsgotado={tempoEsgotado}/>
+            <Questionario
+                questao={questao}
+                ultima={true}
+                questaoRespondida={questaoRespondida}
+                irParaProximoPasso={irParaProximoPasso}/>
 
-            <Botao texto={"Próxima"} href={"/resultado"}/>
+            {/*<Questao tempoPraResposta={5}*/}
+            {/*         valor={questao}*/}
+            {/*         respostaFornecida={respostaFornecida}*/}
+            {/*         tempoEsgotado={tempoEsgotado}/>*/}
+
+            {/*<Botao texto={"Próxima"} href={"/resultado"}/>*/}
         </div>
 
     )
