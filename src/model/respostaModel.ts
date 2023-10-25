@@ -17,6 +17,10 @@ export default class RespostaModel {
         return new RespostaModel(valor, false)
     }
 
+    static fromObject(obj: RespostaModel) : RespostaModel {
+        return new RespostaModel(obj.valor, obj.certa, obj.revelada)
+    }
+
     get valor(): string {
         return this.#valor;
     }
@@ -32,6 +36,8 @@ export default class RespostaModel {
     revelar() {
         return new RespostaModel(this.valor, this.certa, true)
     }
+
+
 
     toObject() {
         return {

@@ -15,6 +15,14 @@ export default class QuestaoModel {
         this.#acertou = acertou;
     }
 
+    static fromObject(obj: QuestaoModel) : QuestaoModel {
+       const respostas = obj.respostas.map(obj => {
+            return RespostaModel.fromObject(obj);
+        })
+
+        return new QuestaoModel(obj.id, obj.enunciado, respostas, obj.acertou)
+    }
+
 
     get id(): number {
         return this.#id;

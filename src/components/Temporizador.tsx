@@ -4,6 +4,7 @@ import {CountdownCircleTimer} from "react-countdown-circle-timer";
 interface TemporizadorProps {
     duracao: number
     tempoEsgotado: () => void
+    key: any
 }
 
 export default function Temporizador(props: TemporizadorProps) {
