@@ -20,7 +20,7 @@ export default function Questionario(props: QuestionarioProps) {
     }
 
     return (
-        <div className={styles.questionario}>
+        <div className={styles.questionario} style={{height: "100vh"}}>
             {props.questao ?
                 <Questao
                 valor={props.questao}
