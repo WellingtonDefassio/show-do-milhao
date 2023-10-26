@@ -12,7 +12,7 @@ const questoes : QuestaoModel[] = [
         RespostaModel.errada('Caju'),
         RespostaModel.errada('Côco'),
         RespostaModel.errada('Chuchu'),
-        RespostaModel.certa('Abóborta')
+        RespostaModel.certa('Abóbora')
     ]),
     new QuestaoModel(203, "Qual fruto o coletivo de cães?", [
         RespostaModel.errada('Manada'),
